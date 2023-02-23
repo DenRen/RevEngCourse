@@ -36,8 +36,14 @@ unsigned mantissa_size_from_type_name(const char* type_name) {
 int main() {
     char* type_name = NULL;
     size_t size = 0;
-    if (getline(&type_name, &size, stdin) == -1) {
+    if (getline(&type_name, &size, stdin) == -1 || strlen(type_name) == 1) {
         fprintf(stderr, "Failed to read type name\n");
+
+        if (size) {
+            free(type_name);
+        }
+
+        return -1;
     }
 
     type_name[strlen(type_name) - 1] = '\0';
