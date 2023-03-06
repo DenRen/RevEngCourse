@@ -10,3 +10,4 @@ SortIncludes: false
 PackConstructorInitializers: Never
 BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: AfterComma
+IndentWidth: 4
